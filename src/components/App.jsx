@@ -45,10 +45,9 @@ class App extends Component {
         );
     };
 
-    remove = e => {
-        const itemId = e.target.id;
+    remove = delId => {
         this.setState(({ contacts }) => ({
-            contacts: contacts.filter(({ id }) => id !== itemId),
+            contacts: contacts.filter(({ id }) => id !== delId),
         }));
     };
 
