@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
+import Container from './Container';
 import ContactForm from './ContactForm';
 import Filter from './Filter';
 import ContactList from './ContactList';
+import s from './App.module.css';
 
 class App extends Component {
     state = {
@@ -53,32 +55,24 @@ class App extends Component {
 
     render() {
         return (
-            <div
-                style={{
-                    // height: '100vh',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    fontSize: 40,
-                    color: '#010101',
-                }}
-            >
-                <h1>Phonebook</h1>
+            <div>
+                <Container>
+                    <h1 className={s.title}>Phonebook</h1>
 
-                <ContactForm onSubmit={this.addContact} />
+                    <ContactForm onSubmit={this.addContact} />
 
-                <h2>Contacts</h2>
+                    <h2 className={s.title}>Contacts</h2>
 
-                <Filter
-                    data={this.state.filter}
-                    handleFilter={this.handleFilter}
-                />
+                    <Filter
+                        data={this.state.filter}
+                        handleFilter={this.handleFilter}
+                    />
 
-                <ContactList
-                    contacts={this.filteredContacts()}
-                    remove={this.remove}
-                />
+                    <ContactList
+                        contacts={this.filteredContacts()}
+                        remove={this.remove}
+                    />
+                </Container>
             </div>
         );
     }

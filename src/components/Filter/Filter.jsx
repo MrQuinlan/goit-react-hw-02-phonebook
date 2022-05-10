@@ -5,7 +5,7 @@ const Filter = ({ data, handleFilter }) => {
     return (
         <>
             <label className={s.label}>
-                <span>Find contacts by name</span>
+                <span className={s.title}>Find contacts by name</span>
                 <input
                     type="text"
                     name="filter"
